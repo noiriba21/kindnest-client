@@ -1,2 +1,55 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #fffaf2;
+  --color-base-200: #fff1dc;
+  --color-base-300: #f6dfbd;
+  --color-base-content: #3b2f2a;
+  --color-primary: #f97316;
+  --color-primary-content: #ffffff;
+  --color-secondary: #0d9488;
+  --color-secondary-content: #ffffff;
+  --color-accent: #fbbf24;
+  --color-accent-content: #3b2f2a;
+  --color-neutral: #3b2f2a;
+  --color-neutral-content: #fffaf2;
+  --radius-box: 1.25rem;
+  --radius-field: 999px;
+  --radius-selector: 999px;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #1f1a17;
+  --color-base-200: #2a2420;
+  --color-base-300: #3a322d;
+  --color-base-content: #fdeedd;
+  --color-primary: #fb923c;
+  --color-primary-content: #1f1a17;
+  --color-secondary: #2dd4bf;
+  --color-secondary-content: #1f1a17;
+  --color-accent: #fbbf24;
+  --color-accent-content: #1f1a17;
+  --color-neutral: #fdeedd;
+  --color-neutral-content: #1f1a17;
+  --radius-box: 1.25rem;
+  --radius-field: 999px;
+  --radius-selector: 999px;
+}
+
+body {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+h1, h2, h3, .brand {
+  font-family: var(--font-baloo), sans-serif;
+}
