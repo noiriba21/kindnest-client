@@ -20,3 +20,13 @@ export const fmtDate = (d: string) =>
 
 export const errMsg = (e: unknown) =>
   e instanceof Error ? e.message : "Something went wrong";
+export const countdown = (d: string) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.round(
+    (new Date(`${d}T00:00:00`).getTime() - today.getTime()) / 86400000
+  );
+  if (days <= 0) return "Happening today!";
+  if (days === 1) return "Tomorrow";
+  return `In ${days} days`;
+};

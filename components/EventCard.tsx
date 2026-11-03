@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fmtDate } from "@/lib/utils";
+import { fmtDate, countdown } from "@/lib/utils";
 import type { EventItem } from "@/lib/types";
 
 export default function EventCard({ event }: { event: EventItem }) {
@@ -17,6 +17,9 @@ export default function EventCard({ event }: { event: EventItem }) {
         <h3 className="card-title line-clamp-2 min-h-14">{event.title}</h3>
         <p>📍 {event.location}</p>
         <p>📅 {fmtDate(event.eventDate)}</p>
+        <p className="font-semibold text-primary" suppressHydrationWarning>
+          ⏳ {countdown(event.eventDate)}
+        </p>
         <div className="card-actions mt-auto pt-3">
           <Link href={`/events/${event._id}`} className="btn btn-primary w-full">
             View Event
