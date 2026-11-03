@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -9,7 +9,7 @@ import { authClient } from "@/lib/auth-client";
 import { errMsg, fmtDate, tomorrowStr } from "@/lib/utils";
 import type { EventItem, JoinedItem } from "@/lib/types";
 
-export default function EventDetails() {
+function EventDetails() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { data: session } = authClient.useSession();
@@ -90,5 +90,12 @@ export default function EventDetails() {
         </div>
       </div>
     </section>
+  );
+}
+export default function EventDetailsPage() {
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <EventDetails />
+    </Suspense>
   );
 }
