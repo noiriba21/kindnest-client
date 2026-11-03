@@ -62,4 +62,43 @@ h1, h2, h3, .brand {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+} 
+/* Gradient je nijei bodlay */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-bg {
+  background: linear-gradient(120deg, var(--color-primary), var(--color-accent), var(--color-secondary), var(--color-primary));
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* Glass card */
+.glass {
+  background: color-mix(in srgb, var(--color-base-100) 65%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-base-content) 12%, transparent);
+}
+
+/* Scroll korle dhire dhire ashe */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: riseIn 0.8s ease both; }
+.rise-2 { animation: riseIn 0.8s ease 0.15s both; }
+.rise-3 { animation: riseIn 0.8s ease 0.3s both; }
+
+/* Button-e glow */
+.btn-primary { box-shadow: 0 6px 18px color-mix(in srgb, var(--color-primary) 35%, transparent); }
+.btn-primary:hover { transform: translateY(-2px); }
+
+/* Card hover */
+.card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+
+/* Motion off korle animation bondho */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg, .float, .float-slow, .rise, .rise-2, .rise-3 { animation: none; }
 }

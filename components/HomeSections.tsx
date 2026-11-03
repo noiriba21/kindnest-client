@@ -19,23 +19,32 @@ function SectionTitle({ title, text }: { title: string; text: string }) {
 
 export function Banner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/20 via-base-100 to-secondary/20">
+    <section className="relative overflow-hidden">
+      <div className="hero-bg absolute inset-0 opacity-30" />
       <span className="float absolute top-10 left-6 text-5xl md:text-6xl select-none">🐦</span>
       <span className="float-slow absolute bottom-10 right-8 text-5xl md:text-6xl select-none">🌳</span>
       <span className="float-slow absolute top-16 right-1/4 text-3xl select-none hidden md:block">🧡</span>
-      <div className="max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
-        <p className="badge badge-secondary badge-lg mb-4">Where kind neighbours gather</p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+      <span className="float absolute bottom-16 left-1/4 text-3xl select-none hidden md:block">🌼</span>
+
+      <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
+        <p className="rise badge badge-secondary badge-lg mb-4">Where kind neighbours gather</p>
+        <h1 className="rise-2 text-4xl md:text-6xl font-bold leading-tight">
           Small kindnesses build a <span className="text-primary">big nest</span>
         </h1>
-        <p className="mt-5 text-lg opacity-80">
+        <p className="rise-3 mt-5 text-lg opacity-80">
           Find a good deed near you, invite your friends and make your
           neighbourhood warmer. From winter clothes in Mirpur to beach cleanups
           in Patenga, every helping hand counts.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="rise-3 mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/events" className="btn btn-primary">Explore Events</Link>
           <Link href="/create-event" className="btn btn-outline btn-primary">Start your own event</Link>
+        </div>
+
+        <div className="rise-3 glass rounded-box mt-12 grid grid-cols-3 gap-2 p-4 text-center">
+          <div><p className="text-2xl">🧥</p><p className="text-sm font-semibold">Donate</p></div>
+          <div><p className="text-2xl">🌱</p><p className="text-sm font-semibold">Plant</p></div>
+          <div><p className="text-2xl">🧹</p><p className="text-sm font-semibold">Clean</p></div>
         </div>
       </div>
     </section>
