@@ -21,14 +21,15 @@ async function request<T>(
     throw new Error("Cannot reach the server. Please try again in a moment.");
   }
   const body = await res.json().catch(() => null);
-  if (!res.ok) throw new Error(body?.message || "Something went wrong");
+  if (!res.ok) {
+    console.log("API error:", res.status, `${API}${path}`, body);
+    throw new Error(body?.message || `Server error ${res.status}`);
+  }
   return body as T;
 }
 
-// No login needed
 export const publicApi = <T>(path: string) => request<T>(path, {});
 
-// Sends the JWT wristband to the server
 export async function api<T>(path: string, options: RequestInit = {}) {
   const { data } = await authClient.token();
   if (!data?.token) throw new Error("Please log in again");
